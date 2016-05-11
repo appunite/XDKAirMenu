@@ -38,12 +38,15 @@
 
 - (IBAction)menuButtonPressed:(id)sender
 {
+    
+    
     XDKAirMenuController *menu = [XDKAirMenuController sharedMenu];
     
-    if (menu.isMenuOpened)
-        [menu closeMenuAnimated];
-    else
-        [menu openMenuAnimated];
+    [menu openViewControllerAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] animated:NO];
+//    if (menu.isMenuOpened)
+//        [menu closeMenuAnimated];
+//    else
+//        [menu openMenuAnimated];
 }
 
 
