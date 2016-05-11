@@ -207,8 +207,7 @@
 
 #pragma mark - Menu
 
-- (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath
-{
+- (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated {
     if ([self.airDelegate respondsToSelector:@selector(airMenu:viewControllerAtIndexPath:)])
     {
         BOOL firstTime = FALSE;
@@ -240,9 +239,15 @@
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
         [self.view addGestureRecognizer:panGesture];
         
-        if (!firstTime)
+        if (!firstTime && animated)
             [self openingAnimation];
     }
+
+}
+
+- (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath
+{
+    [self openViewControllerAtIndexPath:indexPath animated:YES];
 }
 
 - (void)openingAnimation

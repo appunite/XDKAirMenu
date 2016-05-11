@@ -124,5 +124,12 @@
  */
 - (void)closeMenuAnimated;
 
+/**
+ *  Method to open content view controller without opening menu
+ *
+ *  @param indexPath 'NSIndexPath' object
+ *  @param animated YES if should animaten open/close menu, otherwise NO
+ */
+- (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated;
 
 @end
