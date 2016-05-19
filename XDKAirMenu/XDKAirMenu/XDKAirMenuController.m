@@ -197,13 +197,10 @@
     self.currentViewController.view.frame = frame;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    if (self.isMenuOpened)
-        return TRUE;
-    return FALSE;
+    return !self.isMenuOpened;
 }
-
 
 #pragma mark - Menu
 
@@ -237,6 +234,7 @@
         [self addChildViewController:self.currentViewController];
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        panGesture.delegate = self;
         [self.view addGestureRecognizer:panGesture];
         
         if (!firstTime && animated)
