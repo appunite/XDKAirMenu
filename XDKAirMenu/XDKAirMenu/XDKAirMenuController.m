@@ -199,11 +199,13 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if (self.isMenuOpened)
-        return TRUE;
-    return FALSE;
+    return self.isMenuOpened;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return !self.isMenuOpened;
+}
 
 #pragma mark - Menu
 
@@ -237,6 +239,7 @@
         [self addChildViewController:self.currentViewController];
         
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
+        panGesture.delegate = self;
         [self.view addGestureRecognizer:panGesture];
         
         if (!firstTime && animated)
