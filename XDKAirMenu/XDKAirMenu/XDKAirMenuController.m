@@ -244,6 +244,8 @@
         
         if (!firstTime && animated)
             [self openingAnimation];
+        
+        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     }
 
 }
