@@ -217,6 +217,7 @@
             firstTime = TRUE;
         
         _currentViewController = [self.airDelegate airMenu:self viewControllerAtIndexPath:indexPath];
+        _currentIndexPath = indexPath;
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeMenuAnimated)];
         tapGesture.delegate = self;

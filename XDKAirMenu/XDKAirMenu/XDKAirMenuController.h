@@ -92,6 +92,11 @@
 @property (nonatomic, strong, readonly) UIViewController *currentViewController;
 
 /**
+* The actual index path opened by the menu
+*/
+@property (nonatomic, strong, readonly) NSIndexPath *currentIndexPath;
+
+/**
  * The delegate of the XDKAirMenuController
  */
 @property (nonatomic, weak) id<XDKAirMenuDelegate> airDelegate;
