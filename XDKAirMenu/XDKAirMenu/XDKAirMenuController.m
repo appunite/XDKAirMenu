@@ -246,7 +246,16 @@
         if (!firstTime && animated)
             [self openingAnimation];
         
-        [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
+        if ([self.airDelegate respondsToSelector:@selector(airMenu:shouldSelectIndexPath:)]) {
+            
+            if ([self.airDelegate airMenu:self shouldSelectIndexPath:indexPath]) {
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            }
+            
+        } else {
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
     }
 
 }

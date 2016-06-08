@@ -74,6 +74,9 @@
  */
 - (CGFloat)minAlphaTableViewForAirMenu:(XDKAirMenuController*)airMenu;
 
+//
+- (BOOL)airMenu:(XDKAirMenuController*)airMenu shouldSelectIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
