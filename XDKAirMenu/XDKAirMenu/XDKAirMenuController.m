@@ -210,6 +210,10 @@
 #pragma mark - Menu
 
 - (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated {
+    if ([self.airDelegate respondsToSelector:@selector(airMenu:viewControllerAtIndexPath:)]) {
+        if (! [self.airDelegate airMenu:self shouldSelectIndexPath:indexPath]) { return; }
+    }
+    
     if ([self.airDelegate respondsToSelector:@selector(airMenu:viewControllerAtIndexPath:)])
     {
         BOOL firstTime = FALSE;

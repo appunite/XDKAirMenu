@@ -35,8 +35,20 @@
  */
 - (UIViewController*)airMenu:(XDKAirMenuController*)airMenu viewControllerAtIndexPath:(NSIndexPath*)indexPath;
 
-
 @optional
+
+
+/**
+ *  Method of protocol deciding if menu should open ViewController for returned for given index path
+ *
+ *  @param airMenu The menu caller
+ *
+ *  @param indexPath The indexPath
+ *
+ *  @return YES if airMenu should open viewController, else NO
+ */
+- (BOOL)airMenu:(XDKAirMenuController*)airMenu shouldOpenViewControllerAtIndexPath:(NSIndexPath*)indexPath;
+
 
 /**
  *  Method of protocol returning the width of visible part (Default : 35.f)
