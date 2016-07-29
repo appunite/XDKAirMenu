@@ -152,4 +152,12 @@
  */
 - (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated;
 
+
+/**
+ * Method to open content view controller without leaving current view controller in background
+ *
+ *  @param indexPath 'NSIndexPath' object
+ */
+- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath;
+
 @end

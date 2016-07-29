@@ -265,6 +265,15 @@
 
 }
 
+
+- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath {
+    if (self.currentViewController) {
+        [self.currentViewController.view removeFromSuperview];
+        [self.currentViewController removeFromParentViewController];
+    }
+    [self openViewControllerAtIndexPath:indexPath];
+}
+
 - (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath
 {
     [self openViewControllerAtIndexPath:indexPath animated:YES];
