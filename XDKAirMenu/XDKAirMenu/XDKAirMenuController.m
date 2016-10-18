@@ -77,7 +77,7 @@
     
     
     _isMenuOpened = FALSE;
-    [self openViewControllerAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    [self openViewControllerAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:YES];
     
     //    UIWindow *frontWindow = [[UIApplication sharedApplication] keyWindow];
     //
@@ -265,18 +265,12 @@
 
 }
 
-
-- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath {
+- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated {
     if (self.currentViewController) {
         [self.currentViewController.view removeFromSuperview];
         [self.currentViewController removeFromParentViewController];
     }
-    [self openViewControllerAtIndexPath:indexPath];
-}
-
-- (void)openViewControllerAtIndexPath:(NSIndexPath*)indexPath
-{
-    [self openViewControllerAtIndexPath:indexPath animated:YES];
+    [self openViewControllerAtIndexPath:indexPath animated:animated];
 }
 
 - (void)openingAnimation
@@ -368,7 +362,7 @@
 {
     [self.currentViewController.view removeFromSuperview];
     [self.currentViewController removeFromParentViewController];
-    [self openViewControllerAtIndexPath:indexPath];
+    [self openViewControllerAtIndexPath:indexPath animated:YES];
 }
 
 

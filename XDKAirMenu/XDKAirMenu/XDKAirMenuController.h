@@ -157,7 +157,8 @@
  * Method to open content view controller without leaving current view controller in background
  *
  *  @param indexPath 'NSIndexPath' object
+ *  @param animated YES if should animaten open/close menu, otherwise NO
  */
-- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath;
+- (void)switchToViewControllerAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated;
 
 @end
